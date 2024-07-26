@@ -80,6 +80,9 @@ function App() {
       card.style.transform = '';
     }, 100);
 
+
+
+    setLevelIndex(1+1)
     setPoints(points + pointsToAdd);
     setClicks([...clicks,{id: Date.now(), x: e.pageX, y : e.pageY}]);
   };
@@ -265,14 +268,14 @@ function App() {
         </div>
         {clicks.map((click) => (
           <div
-         key={click.id}
+          key={click.id.toString()}
     className='absolute text-5xl font-bold opacity-0 text-white pointer-events-none'
     style={{
-        top: `${click.y - 42}px`,
-        left: `${click.x - 28}px`,
+      top: `${Number(click.y) - 42}px`,
+      left: `${Number(click.x) - 28}px`,      
         animation: `float 1s ease-out`
     }}
-    onAnimationEnd={() => handleAnimationEnd(click.id)}
+    onAnimationEnd={() => handleAnimationEnd(Number(click.id))}
 > 
     {pointsToAdd}
   </div>
