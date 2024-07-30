@@ -249,13 +249,13 @@ function App() {
          <p className='mt-1'>Friends</p>
          </a>
 
-        <button 
+        <a href="/earn"
         className='text-center text-[#85827d] w-1/5 hover:bg-gray-200' 
          onClick={() => console.log("Botão clicado")}
               >
           <Coins className='w-8 h-8 mx-auto'/>
          <p className='mt-1'>Earn</p>
-        </button>
+        </a>
         
 
 
