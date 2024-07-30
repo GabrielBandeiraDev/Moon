@@ -1,0 +1,83 @@
+import './App.css';
+import Hamster from './icons/Hamster';
+import { binanceLogo, dollarCoin, hamsterCoin } from './images';
+import Info from './icons/Info';
+import Settings from './icons/Settings';
+import Coins from './icons/Coins';
+
+function App() {
+  return (
+    <div className='bg-gray-800 flex flex-col h-screen'>
+      <div className='flex-grow text-white font-bold max-w-xl mx-auto'>
+        <div className='px-4 z-10'>
+          <div className='flex items-center space-x-2 pt-4'>
+            <div className='p-1 rounded-lg bg-gray-700'>
+              <Hamster size={24} className='text-gray-400' />
+            </div>
+            <div>
+              <p className='text-sm'>Gabriel (CEO)</p>
+            </div>
+          </div>
+          <div className='flex items-center justify-between space-x-4 mt-1'>
+            <div className='flex items-center w-1/3'>
+              <div className='w-full'>
+                <div className='flex justify-between'>
+                  <p className='text-sm'></p>
+                  <p className='text-sm'><span className='text-gray-500'>/10</span></p>
+                </div>
+                <div className='flex items-center mt-1 border-2 border-gray-600 rounded-full'>
+                  <div className='w-full h-2 bg-gray-700 rounded-full'>
+                    <div className='progress-gradient h-2 rounded-full' style={{ width: `50%` }}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='flex items-center w-2/3 border-2 border-gray-600 rounded-full px-4 py-[2px] bg-gray-700 max-w-64'>
+              <img src={binanceLogo} alt='Exchange' className='w-8 h-8' />
+              <div className='flex-1 text-center'>
+                <p className='text-xs text-gray-400 font-medium'>Convide Amigos e Ganhe!</p>
+                <div className='flex items-center justify-center space-x-1'>
+                  <img src={dollarCoin} alt="Dollar" className='w-[18px] h-[18px]' />
+                  <Info size={20} className='text-gray-500' />
+                </div>
+              </div>
+              <Settings className='text-white' />
+            </div>
+          </div>
+        </div>
+        <div className='flex flex-col bg-gray-900 p-4 rounded-t-lg mt-4'>
+          <h2 className='text-xl font-bold text-white'>Ganhe Moedas por Tarefas</h2>
+          <ul className='list-disc list-inside mt-2 text-gray-400'>
+            <li className='mt-2'>Siga no YouTube: <a href="https://youtube.com/SEULINK" className='text-blue-400 hover:underline'>https://youtube.com/SEULINK</a></li>
+            <li className='mt-2'>Siga no Twitter: <a href="https://twitter.com/SEULINK" className='text-blue-400 hover:underline'>https://twitter.com/SEULINK</a></li>
+            <li className='mt-2'>Siga no Instagram: <a href="https://instagram.com/SEULINK" className='text-blue-400 hover:underline'>https://instagram.com/SEULINK</a></li>
+            <li className='mt-2'>Faça uma compra: <a href="/compras" className='text-blue-400 hover:underline'>Veja opções de compra</a></li>
+          </ul>
+        </div>
+        <div className='bg-gray-900 p-4 rounded-t-lg mt-4'>
+          <h2 className='text-xl font-bold text-white'>Compra Fácil</h2>
+          <p className='text-gray-400 mt-2'>Pague para ganhar mais cliques e outras vantagens!</p>
+          <button className='mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+            Ver Opções de Compra
+          </button>
+        </div>
+      </div>
+      <div className='flex justify-around p-4 bg-gray-800 border-t border-gray-700'>
+        <a href="/exchange" className='text-center text-gray-400 w-1/3 hover:bg-gray-700 p-2 rounded-2xl'>
+          <img src={binanceLogo} alt="Exchange" className='w-8 h-8 mx-auto' />
+          <p className='mt-1'>Exchange</p>
+        </a>
+        <button className='text-center text-gray-400 w-1/3 hover:bg-gray-700 p-2 rounded-2xl'>
+          <Coins className='w-8 h-8 mx-auto' />
+          <p className='mt-1'>Earn</p>
+        </button>
+        <div className='text-center text-gray-400 w-1/3'>
+          <img src={hamsterCoin} alt="Airdrop" className='w-8 h-8 mx-auto' />
+          <p className='mt-1'>Airdrop</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
