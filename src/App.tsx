@@ -6,6 +6,8 @@ import Info from './icons/Info';
 import Settings from './icons/Settings';
 import Friends from './icons/Friends';
 import Coins from './icons/Coins';
+ // URL do servidor WebSocket
+const WS_URL = 'ws://localhost:3001';
 
 
 
@@ -36,13 +38,31 @@ function App() {
     100000000000,
   ];
 
-  const [levelIndex, setLevelIndex] = useState(4);
-  const [points, setPoints] = useState(22742965);
-  const [clicks, setClicks] = useState<{id: Number, x: Number , y: Number}[]>
-  ([]);
+  const [levelIndex, setLevelIndex] = useState(1);
+  const [points, setPoints] = useState(0);
+  const [clicks, setClicks] = useState<{id: Number, x: Number , y: Number}[]>([]);
+  const [socket, setSocket] = useState<WebSocket | null>(null);
 
-  const pointsToAdd = 11;
-  const profitPerHour = 126422;
+  const pointsToAdd = 15;
+  const profitPerHour = 1;
+
+  useEffect(() => {
+    // Conectar ao servidor WebSocket
+    const ws = new WebSocket(WS_URL);
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (data.points !== undefined) {
+        setPoints(data.points);
+      }
+    };
+    setSocket(ws);
+
+    return () => {
+      if (ws) {
+        ws.close();
+      }
+    };
+  }, []);
 
 
   const [dailyRewardTimeLeft, setDailyRewardTimeLeft] = useState('');
@@ -69,27 +89,32 @@ function App() {
     return `${paddedHours}:${paddedMinutes}`;
   };
 
-    const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2; 
     const y = e.clientY - rect.top - rect.height / 2;
-    card.style.transform = `perspective(1000px) rotateX(${-y / 10}deg) rotateY(${x / 10}deg)`; // Corrigido RotateY para rotateY
-  
+    card.style.transform = `perspective(1000px) rotateX(${-y / 10}deg) rotateY(${x / 10}deg)`; 
+
     setTimeout(() => { 
       card.style.transform = '';
     }, 100);
 
+    setLevelIndex(levelIndex + 1);
+    const newPoints = points + pointsToAdd;
+    setPoints(newPoints);
 
+    // Enviar os novos pontos para o servidor WebSocket
+    if (socket) {
+      socket.send(JSON.stringify({ points: newPoints }));
+    }
 
-    setLevelIndex(1+1)
-    setPoints(points + pointsToAdd);
-    setClicks([...clicks,{id: Date.now(), x: e.pageX, y : e.pageY}]);
+    setClicks([...clicks, {id: Date.now(), x: e.pageX, y : e.pageY}]);
   };
 
-    const handleAnimationEnd = (id: number) => {
-      setClicks((prevClicks) => prevClicks.filter(click => click.id !== id));
-};
+  const handleAnimationEnd = (id: number) => {
+    setClicks((prevClicks) => prevClicks.filter(click => click.id !== id));
+  };
 
 
   useEffect(() => {
@@ -140,7 +165,7 @@ function App() {
               <Hamster size={24} className='text-[#d4d4d4]' />
             </div>
             <div>
-              <p className='text-sm '>Gabriel (CEO)</p>
+              <p className='text-sm '>Savitar (CEO)</p>
             </div>
           </div>
           <div className='flex items-center justify-between space-x-4 mt-1'>
@@ -161,7 +186,7 @@ function App() {
             rounded-full px-4 py-[2px] bg-[#43433b]/[0.6] max-w-64'> 
               <img src={binanceLogo} alt='Exchange' className='w-8 h-8'/>    
               <div className='flex-1 text-center'>
-              <p className='text-xs text-[#85827d] font-medium'>Profit per Hour
+              <p className='text-xs text-[#85827d] font-medium'>AJUDE DOANDO PARA O PROJETO!
               </p>
               <div className='flex items-center justify-center space-x-1'>
                 <img src={dollarCoin} alt="Dollar" className='w-[18px]
@@ -259,12 +284,12 @@ function App() {
         
 
 
-       <div className='text-center text-[#85827d] w-1/5'>
+       <a href="/Airdrop" className='text-center text-[#85827d] w-1/5'>
        <img src={hamsterCoin} alt="Airdrop" className='w-8 h-8 mx-auto'/>
        <p className='mt-1'>Airdrop</p>
        
 
-       </div>
+       </a>
         </div>
         {clicks.map((click) => (
           <div
