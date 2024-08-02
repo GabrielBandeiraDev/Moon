@@ -7,23 +7,23 @@ import Settings from './icons/Settings';
 import Friends from './icons/Friends';
 import Coins from './icons/Coins';
  // URL do servidor WebSocket
-const WS_URL = 'ws://localhost:3001';
+const WS_URL = 'https://69070921-d03a-4485-b7e1-5c549f94b4c9-00-gw3lj7f3kfzf.kirk.replit.dev/';
 
 
 
 
 function App() {
   const levelNames = [
-    "bronze",
-    "prata",
-    "Ouro",
-    "platina", 
-    "Esmeralda",
-    "Diamante",
-    "Escaleno",
-    "Obsidian",
-    "Badrock",
-    "Inifito"
+    "CLIQUE BACANA",
+    "CLIQUE MANEIRO",
+    "SUPER CLICK",
+    "MASTER CLICK", 
+    "Esmeralda dos CLICKS ",
+    "Diamante DOS CLICK",
+    "Escaleno CLICK",
+    "Obsidian CLICK ",
+    "Badrock CLICK",
+    "Inifitos CLICKS"
   ];
 
   const levelMinPoints = [

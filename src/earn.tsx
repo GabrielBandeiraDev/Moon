@@ -48,9 +48,9 @@ function App() {
         <div className='flex flex-col bg-gray-900 p-4 rounded-t-lg mt-4 shadow-md'>
           <h2 className='text-xl font-bold text-white mb-2'>Acompanhe Nas Redes Sociais</h2>
           <ul className='list-disc list-inside text-gray-400'>
-            <li className='mt-2'>Siga no YouTube: <a href="https://youtube.com/SEULINK" className='text-blue-400 hover:underline'>https://youtube.com/SEULINK</a></li>
-            <li className='mt-2'>Siga no Twitter: <a href="https://twitter.com/SEULINK" className='text-blue-400 hover:underline'>https://twitter.com/SEULINK</a></li>
-            <li className='mt-2'>Siga no Instagram: <a href="https://instagram.com/SEULINK" className='text-blue-400 hover:underline'>https://instagram.com/SEULINK</a></li>
+            <li className='mt-2'>Entre no canal do Telegram: <a href="https://t.me/gb2bet" className='text-blue-400 hover:underline'>https://t.me/gb2bet</a></li>
+            <li className='mt-2'>Siga no Twitter: <a href="INDISPONIVEL" className='text-blue-400 hover:underline'>INDISPONIVEL</a></li>
+            <li className='mt-2'>Siga no Instagram: <a href="https://www.instagram.com/moon_cryptocg?igsh=bzh4MG9vb2diaHV4&utm_source=qr" className='text-blue-400 hover:underline'>https://www.instagram.com/moon_cryptocg?igsh=bzh4MG9vb2diaHV4&utm_source=qr</a></li>
           </ul>
         </div>
         <div className='bg-gray-900 p-4 rounded-t-lg mt-4 shadow-md'>
@@ -65,10 +65,12 @@ function App() {
           <Coins className='w-8 h-8 mx-auto' />
           <p className='mt-1'>Earn</p>
         </button>
-        <div className='text-center text-gray-400 w-1/3 hover:bg-gray-700 p-3 rounded-2xl transition duration-200 ease-in-out'>
-          <img src={hamsterCoin} alt="Airdrop" className='w-8 h-8 mx-auto' />
-          <p className='mt-1'>Airdrop</p>
-        </div>
+        <a href="/Airdrop" className='text-center text-[#85827d] w-1/5'>
+       <img src={hamsterCoin} alt="Airdrop" className='w-8 h-8 mx-auto'/>
+       <p className='mt-1'>Airdrop</p>
+       
+
+       </a>
       </div>
     </div>
   );

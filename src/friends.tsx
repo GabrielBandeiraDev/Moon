@@ -35,7 +35,7 @@ function App() {
             <div className='flex items-center w-2/3 border-2 border-gray-600 rounded-full px-4 py-[2px] bg-gray-700 max-w-64'>
               <img src={binanceLogo} alt='Exchange' className='w-8 h-8' />
               <div className='flex-1 text-center'>
-                <p className='text-xs text-gray-400 font-medium'>Convide Amigos e Ganhe!</p>
+                <p className='text-xs text-gray-400 font-medium'>Convide Amigos !</p>
                 <div className='flex items-center justify-center space-x-1'>
                   <img src={dollarCoin} alt="Dollar" className='w-[18px] h-[18px]' />
                   <Info size={20} className='text-gray-500' />
@@ -50,11 +50,11 @@ function App() {
             <div className='flex justify-center items-center h-full'>
               <div className='text-center'>
                 <h2 className='text-2xl font-bold text-white'>Convide Amigos</h2>
-                <p className='text-sm text-gray-400 mt-2'>Cada amigo que entrar pelo seu link, você ganha 200 mil moedas!</p>
+                <p className='text-sm text-gray-400 mt-2'>Cada amigo que entrar pelo seu link, você ganha uma chance de entrar na lista de Airdrop Sem mesmo Doar!</p>
                 <div className='mt-4'>
                   <p className='text-white font-medium'>Seu link de convite:</p>
                   <div className='bg-gray-700 p-2 rounded-md mt-2'>
-                    <p className='text-gray-200'>https://seusite.com/convite-unico</p>
+                    <p className='text-gray-200'>https://t.me/MoonCG_bot</p>
                   </div>
                 </div>
               </div>
@@ -70,10 +70,12 @@ function App() {
     <Coins className='w-8 h-8 mx-auto' />
     <p className='mt-1'>Earn/Buy</p>
   </a>
-  <div className='text-center text-gray-400 w-1/5 hover:bg-gray-700 p-2 rounded-2xl'>
-    <img src={hamsterCoin} alt="Airdrop" className='w-8 h-8 mx-auto' />
-    <p className='mt-1'>Airdrop</p>
-  </div>
+  <a href="/Airdrop" className='text-center text-[#85827d] w-1/5'>
+       <img src={hamsterCoin} alt="Airdrop" className='w-8 h-8 mx-auto'/>
+       <p className='mt-1'>Airdrop</p>
+       
+
+       </a>
 </div>
 
       </div>
