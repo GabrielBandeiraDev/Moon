@@ -1,14 +1,3 @@
 {
-    "version": 2,
-    "functions": {
-      "api/websocket.js": {
-        "maxDuration": 10
-      }
-    },
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/"
-      }
-    ]
-  }
+    "rewrites":[{"source": "/(.*)", "destination": "/"}]
+}
