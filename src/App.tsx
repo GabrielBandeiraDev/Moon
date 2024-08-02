@@ -7,7 +7,8 @@ import Settings from './icons/Settings';
 import Friends from './icons/Friends';
 import Coins from './icons/Coins';
  // URL do servidor WebSocket
- const WS_URL = 'wss://moon-1q2g-git-main-gabriels-projects-3b84bc0f.vercel.app/api/websocket';
+const WS_URL = 'https://69070921-d03a-4485-b7e1-5c549f94b4c9-00-gw3lj7f3kfzf.kirk.replit.dev/';
+
 
 
 
