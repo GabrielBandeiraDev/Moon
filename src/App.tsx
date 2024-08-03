@@ -7,7 +7,7 @@ import Settings from './icons/Settings';
 import Friends from './icons/Friends';
 import Coins from './icons/Coins';
  // URL do servidor WebSocket
-const WS_URL = 'https://69070921-d03a-4485-b7e1-5c549f94b4c9-00-gw3lj7f3kfzf.kirk.replit.dev/';
+const WS_URL = 'https://bdef3125-6ab6-4088-b0b4-3dea99755743-00-mh8r1z1p7pf7.janeway.replit.dev/';
 
 
 
