@@ -98,7 +98,7 @@ function App() {
         <div className='bg-gray-900 p-4 rounded-t-lg mt-4 shadow-md'>
           <h2 className='text-xl font-bold text-white mb-4'>Faça uma Doação</h2>
           <div className='mb-4'>
-            <label htmlFor='address' className='block text-gray-400 mb-2'>Endereço da sua Carteira:</label>
+            <label htmlFor='address' className='block text-gray-400 mb-2'>Endereço da sua Carteira CRIPTO:</label>
             <input
               id='address'
               type='text'
