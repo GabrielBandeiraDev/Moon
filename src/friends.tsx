@@ -68,7 +68,7 @@ function App() {
   </a>
   <a href="/Earn" className='text-center text-gray-400 w-1/5 hover:bg-gray-700 p-2 rounded-2xl'>
     <Coins className='w-8 h-8 mx-auto' />
-    <p className='mt-1'>Earn/Buy</p>
+    <p className='mt-1'>Redes Sociais</p>
   </a>
   <a href="/Airdrop" className='text-center text-[#85827d] w-1/5'>
        <img src={hamsterCoin} alt="Airdrop" className='w-8 h-8 mx-auto'/>
