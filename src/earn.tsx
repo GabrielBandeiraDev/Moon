@@ -63,7 +63,7 @@ function App() {
         </a>
         <button className='text-center text-gray-400 w-1/3 hover:bg-gray-700 p-3 rounded-2xl transition duration-200 ease-in-out'>
           <Coins className='w-8 h-8 mx-auto' />
-          <p className='mt-1'>Earn</p>
+          <p className='mt-1'>Estamos Aqui</p>
         </button>
         <a href="/Airdrop" className='text-center text-[#85827d] w-1/5'>
        <img src={hamsterCoin} alt="Airdrop" className='w-8 h-8 mx-auto'/>
