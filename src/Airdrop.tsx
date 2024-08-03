@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import './App.css';
 import Hamster from './icons/Hamster';
-import { binanceLogo, dollarCoin, hamsterCoin } from './images';
+import { binanceLogo, dollarCoin, } from './images';
 import Info from './icons/Info';
 import Settings from './icons/Settings';
-
 
 function App() {
   const [address, setAddress] = useState('');
@@ -14,14 +13,11 @@ function App() {
   const [confirmationTime, setConfirmationTime] = useState<Date | null>(null);
   const [showSupportForm, setShowSupportForm] = useState(false);
   const [supportMessage, setSupportMessage] = useState('');
+  const [supportName, setSupportName] = useState('');
 
   const handlePayment = () => {
-    // Logic to process the payment (send data, validation, etc.)
     console.log(`Address: ${address}`);
     console.log(`Amount: ${amount}`);
-    // Add logic to call an API, validate the data, etc.
-    
-    // Show payment information
     setShowPaymentInfo(true);
     setConfirmationTime(new Date()); // Mark the time when the donation was processed
   };
@@ -43,13 +39,43 @@ function App() {
     }
   };
 
-  const handleSupportSubmit = () => {
-    // Logic to send support message to the bot
-    console.log('Support message:', supportMessage);
-    alert('Sua mensagem de suporte foi enviada com sucesso!');
-    setSupportMessage('');
-    setShowSupportForm(false);
+  async function sendSupportMessageToTelegram(name: string, message: string): Promise<any> {
+    const botToken = '6556947937:AAHNjuBS95r3RWTd0U-JVZsaDi7wJIwifqU'; // Substitua pelo token do seu bot
+    const chatId = '-4254782461'; // Substitua pelo ID do chat (grupo ou canal)
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+  
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: `Nome: ${name}\nMensagem: ${message}`,
+      }),
+    });
+  
+    if (!response.ok) {
+      throw new Error('Failed to send message to Telegram');
+    }
+  
+    return response.json();
+  }
+  
+  const handleSupportSubmit = async () => {
+    try {
+      await sendSupportMessageToTelegram(supportName, supportMessage);
+      console.log('Support message sent to Telegram:', supportMessage);
+      alert('Sua mensagem de suporte foi enviada com sucesso!');
+      setSupportMessage('');
+      setSupportName('');
+      setShowSupportForm(false);
+    } catch (error) {
+      console.error('Failed to send support message to Telegram:', error);
+      alert('Houve um problema ao enviar sua mensagem de suporte. Por favor, tente novamente.');
+    }
   };
+  
 
   const isFormValid = () => {
     return address.trim() !== '' && amount.trim() !== '';
@@ -149,51 +175,59 @@ function App() {
                   onClick={handleConfirmation}
                   className='w-full p-2 mt-4 bg-green-600 text-white rounded-md hover:bg-green-700 transition duration-200'
                 >
-                  Confirmo que Doei!
+                  Confirmar Doação
                 </button>
               )}
-              <button
-                onClick={() => setShowSupportForm(true)}
-                className='w-full p-2 mt-4 bg-yellow-600 text-white rounded-md hover:bg-yellow-700 transition duration-200'
-              >
-                Reportar Problema
-              </button>
             </div>
           )}
+        </div>
 
-          {showSupportForm && (
-            <div className='mt-4 p-4 bg-gray-800 rounded-md border border-gray-700'>
-              <h3 className='text-lg font-bold text-white mb-2'>Reporte um Problema</h3>
-              <textarea
-                value={supportMessage}
-                onChange={(e) => setSupportMessage(e.target.value)}
-                className='w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-white'
-                placeholder='Descreva seu problema aqui...'
-                rows={4}
-              />
+        <div className='bg-gray-900 p-4 rounded-b-lg mt-4 shadow-md'>
+          <h2 className='text-xl font-bold text-white mb-4'>Suporte</h2>
+          {showSupportForm ? (
+            <div>
+              <div className='mb-4'>
+                <label htmlFor='supportName' className='block text-gray-400 mb-2'>Seu Nome:</label>
+                <input
+                  id='supportName'
+                  type='text'
+                  value={supportName}
+                  onChange={(e) => setSupportName(e.target.value)}
+                  className='w-full p-2 bg-gray-800 border border-gray-700 rounded-md text-white'
+                  placeholder='Digite seu nome'
+                />
+              </div>
+              <div className='mb-4'>
+                <label htmlFor='supportMessage' className='block text-gray-400 mb-2'>Mensagem:</label>
+                <textarea
+                  id='supportMessage'
+                  value={supportMessage}
+                  onChange={(e) => setSupportMessage(e.target.value)}
+                  className='w-full p-2 bg-gray-800 border border-gray-700 rounded-md text-white'
+                  placeholder='Digite sua mensagem'
+                />
+              </div>
               <button
                 onClick={handleSupportSubmit}
-                className='w-full p-2 mt-4 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-200'
+                className='w-full p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200'
               >
-                Enviar Mensagem
+                Enviar Mensagem de Suporte
               </button>
               <button
                 onClick={() => setShowSupportForm(false)}
-                className='w-full p-2 mt-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition duration-200'
+                className='w-full p-2 mt-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-200'
               >
                 Cancelar
               </button>
             </div>
+          ) : (
+            <button
+              onClick={() => setShowSupportForm(true)}
+              className='w-full p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200'
+            >
+              Relatar Problema
+            </button>
           )}
-        </div>
-      </div>
-
-      <div className='flex justify-center mt-4 p-4'>
-        <div className='flex space-x-4'>
-          <a href="/exchange" className='text-center text-gray-400 hover:bg-gray-700 p-3 rounded-2xl transition duration-200 ease-in-out'>
-            <img src={hamsterCoin} alt="Airdrop" className='w-8 h-8 mx-auto' />
-            <p className='mt-1'>Home</p>
-          </a>
         </div>
       </div>
     </div>
