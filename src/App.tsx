@@ -279,7 +279,7 @@ function App() {
          onClick={() => console.log("Botão clicado")}
               >
           <Coins className='w-8 h-8 mx-auto'/>
-         <p className='mt-1'>Earn</p>
+         <p className='mt-1'>Redes Sociais</p>
         </a>
         
 
