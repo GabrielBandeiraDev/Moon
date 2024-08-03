@@ -49,7 +49,7 @@ function App() {
           <h2 className='text-xl font-bold text-white mb-2'>Acompanhe Nas Redes Sociais</h2>
           <ul className='list-disc list-inside text-gray-400'>
             <li className='mt-2'>Entre no canal do Telegram: <a href="https://t.me/gb2bet" className='text-blue-400 hover:underline'>https://t.me/gb2bet</a></li>
-            <li className='mt-2'>Siga no Twitter: <a href="INDISPONIVEL" className='text-blue-400 hover:underline'>INDISPONIVEL</a></li>
+            <li className='mt-2'>Siga no Twitter: <a href="INDISPONIVEL" className='text-blue-400 hover:underline'>https://x.com/ForGBMoney</a></li>
             <li className='mt-2'>Siga no Instagram: <a href="https://www.instagram.com/moon_cryptocg?igsh=bzh4MG9vb2diaHV4&utm_source=qr" className='text-blue-400 hover:underline'>https://www.instagram.com/moon_cryptocg?igsh=bzh4MG9vb2diaHV4&utm_source=qr</a></li>
           </ul>
         </div>
