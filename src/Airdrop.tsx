@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Hamster from './icons/Hamster';
-import { binanceLogo, dollarCoin, } from './images';
+import { binanceLogo, dollarCoin, hamsterCoin } from './images';
 import Info from './icons/Info';
 import Settings from './icons/Settings';
 
@@ -228,9 +228,15 @@ function App() {
               Relatar Problema
             </button>
           )}
+           <a href="/exchange" className='text-center text-[#85827d] w-1/5'>
+       <img src={hamsterCoin} alt="Airdrop" className='w-8 h-8 mx-auto'/>
+       <p className='mt-1'>Home</p>
+       </a>
         </div>
       </div>
+      
     </div>
+    
   );
 }
 
