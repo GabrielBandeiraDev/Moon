@@ -28,14 +28,12 @@ Siga os passos abaixo para rodar o **MOON-APP** no seu ambiente local:
 
 ### 1. Clonando o Repositório
 
-
+bash
  [git clone https://github.com/seu-usuario/moon-app.git](https://github.com/GabrielBandeiraDev/Moon)
 cd moon-app
 
 
 Contato : https://www.linkedin.com/in/gabriel-bandeira-macedo-a2107a139/?originalSubdomain=br
-
-
 
 
 
